@@ -8,11 +8,11 @@ const Header = () => {
     }
 
     return (
-        <header className="text-center h-48 bg-header-pattern-mobile md:bg-header-pattern-desktop">
+        <header className="text-center h-52 bg-header-pattern-mobile md:bg-header-pattern-desktop">
             <h1 className="font-bold pt-5 text-2xl text-white">IP Address Tracker</h1>
-            <form onSubmit={handleSubmit} className="flex w-[calc(100% - 40px)] my-5 md:mx-auto mx-5 md:max-w-sm">
+            <form onSubmit={handleSubmit} className="flex w-[calc(100% - 40px)] mt-4 md:mx-auto mx-5 md:max-w-sm">
                 <input type="text"
-                    className='w-full text-sm py-2 px-5 rounded-l-md active:outline-none focus:outline-none'
+                    className='w-full text-sm py-3 px-5 rounded-l-md active:outline-none focus:outline-none'
                     placeholder="Search for any IP address or domain"
                 />
                 <button
