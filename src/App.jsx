@@ -9,21 +9,21 @@ const Details = () => {
           <p className="text-xl text-very-dark-gray font-medium">192.168.1.10</p>
         </div>
 
-        <div className="divider md:block hidden my-3 ml-5 w-[1px] opacity-40 bg-dark-gray" />
+        <div className="divider md:block hidden my-3 ml-5 h-16 w-[1px] opacity-40 bg-dark-gray" />
 
         <div className="location flex-1">
           <p className='text-xs text-dark-gray uppercase tracking-widest font-medium mb-2'>LOCATION</p>
           <p className="text-xl text-very-dark-gray font-medium">Brooklyn, NY 10001</p>
         </div>
 
-        <div className="divider md:block hidden my-3 ml-5 w-[1px] opacity-40 bg-dark-gray" />
+        <div className="divider md:block hidden my-3 ml-5 h-16 w-[1px] opacity-40 bg-dark-gray" />
 
         <div className="timezone flex-1 ">
           <p className='text-xs text-dark-gray uppercase tracking-widest font-medium mb-2'>TIMEZONE</p>
           <p className="text-xl text-very-dark-gray font-medium">UTC-05:00</p>
         </div>
 
-        <div className="divider md:block hidden my-3 ml-5 w-[1px] opacity-40 bg-dark-gray" />
+        <div className="divider md:block hidden my-3 ml-5 h-16 w-[1px] opacity-40 bg-dark-gray" />
 
         <div className="isp flex-1">
           <p className='text-xs text-dark-gray uppercase tracking-widest font-medium mb-2'>ISP</p>

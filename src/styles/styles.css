@@ -561,8 +561,24 @@ video {
   display: none;
 }
 
+.h-28 {
+  height: 7rem;
+}
+
 .h-52 {
   height: 13rem;
+}
+
+.h-20 {
+  height: 5rem;
+}
+
+.h-16 {
+  height: 4rem;
+}
+
+.h-1 {
+  height: 0.25rem;
 }
 
 .w-\[1px\] {
