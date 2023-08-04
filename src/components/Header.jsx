@@ -5,6 +5,9 @@ const Header = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+
+        const searchQuery = e.target[0].value
+        searchQuery && (window.location.search = `search=${searchQuery}`)
     }
 
     return (

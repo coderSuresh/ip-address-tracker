@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import MapComponent from './MapComponent'
+import ErrorModal from './ErrorModal'
 
 const Details = () => {
     const [ip, setIp] = useState('')
@@ -11,10 +12,31 @@ const Details = () => {
     })
     const [isp, setIsp] = useState('')
     const [loading, setLoading] = useState(true)
+    const [searchQuery, setSearchQuery] = useState('')
+    const [error, setError] = useState(false)
+    const [errorMsg, setErrorMsg] = useState('')
 
-    const fetchIp = async () => {
-        const res = await fetch('https://ipapi.co/json/')
+    const searchParams = new URLSearchParams(window.location.search)
+    const search = searchParams.get('search')
+
+    const fetchIp = async (query) => {
+
+        let url = 'https://ipapi.co/json/'
+
+        if (query) {
+            url = `https://ipapi.co/${query}/json/`
+            console.log(url)
+        }
+
+        const res = await fetch(url)
         const data = await res.json()
+
+        if (data.error) {
+            setError(true)
+            setErrorMsg(data.reason)
+            return
+        }
+
         setIp(data.ip)
 
         setLocation(`${data.city}, ${data.region}, ${data.country_name}`)
@@ -24,16 +46,22 @@ const Details = () => {
             latitude: parseFloat(data.latitude),
             longitude: parseFloat(data.longitude)
         })
-        
+
         setLoading(false)
     }
 
     useEffect(() => {
-        fetchIp()
-    }, [])
-
+        if (!search) {
+            fetchIp()
+        }
+        setSearchQuery(search)
+        fetchIp(searchQuery)
+    }, [searchQuery])
     return (
         <>
+            {
+                error && <ErrorModal error={errorMsg} />
+            }
             <div className="mx-5">
                 <div className='flex flex-col text-center md:text-start items-center md:flex-row gap-5 bg-white shadow rounded-xl px-10 py-6 md:items-start justify-between md:mx-auto mt-[-4rem] md:max-w-4xl w-full'>
                     <div className="ip flex-1">
@@ -65,7 +93,7 @@ const Details = () => {
             </div>
             {
                 !loading && <MapComponent location={location} latLong={latLong} />
-           }
+            }
         </>
     )
 }
