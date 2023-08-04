@@ -49,13 +49,16 @@ const Details = () => {
         setLoading(false)
     }
 
+    // use useffect to fetch data on search query change and on page load
     useEffect(() => {
-        if (!search) {
+        if (search) {
+            setSearchQuery(search)
+            fetchIp(search)
+        } else {
             fetchIp()
         }
-        setSearchQuery(search)
-        fetchIp(searchQuery)
-    }, [searchQuery])
+    }, [search])
+   
     return (
         <>
             {
