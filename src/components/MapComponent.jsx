@@ -4,12 +4,8 @@ import 'leaflet/dist/leaflet.css';
 
 const MapComponent = ({ location, latLong }) => {
 
-    const [position, setPosition] = React.useState([latLong.latitude, latLong.longitude]);
-
-    React.useEffect(() => {
-        setPosition([latLong.latitude, latLong.longitude]);
-    }, [latLong]);
-
+    const position = [latLong.latitude, latLong.longitude];
+    
     return (
         <div className='absolute top-52 left-0 right-0 z-[-1] w-full h-[calc(100vh-208px)]'>
             <MapContainer
