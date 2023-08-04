@@ -7,7 +7,7 @@ const MapComponent = ({ location, latLong }) => {
     const position = [latLong.latitude, latLong.longitude];
     
     return (
-        <div className='absolute top-52 left-0 right-0 z-[-1] w-full h-[calc(100vh-208px)]'>
+        <div className='absolute top-52 left-0 right-0 z-[-1] w-full h-full'>
             <MapContainer
                 center={position}
                 zoom={13}

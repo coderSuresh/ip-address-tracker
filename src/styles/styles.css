@@ -593,6 +593,10 @@ video {
   height: calc(100vh - 208px);
 }
 
+.h-full {
+  height: 100%;
+}
+
 .w-\[1px\] {
   width: 1px;
 }
@@ -623,6 +627,10 @@ video {
 
 .gap-5 {
   gap: 1.25rem;
+}
+
+.break-words {
+  overflow-wrap: break-word;
 }
 
 .rounded-xl {
