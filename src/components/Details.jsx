@@ -12,8 +12,10 @@ const Details = () => {
     })
     const [isp, setIsp] = useState('')
     const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(false)
-    const [errorMsg, setErrorMsg] = useState('')
+    const [error, setError] = useState({
+        hasError: false,
+        errorMsg: ''
+    })
 
     const searchParams = new URLSearchParams(window.location.search)
     const search = searchParams.get('search')
@@ -30,8 +32,10 @@ const Details = () => {
         const data = await res.json()
 
         if (data.error) {
-            setError(true)
-            setErrorMsg(data.reason)
+            setError({
+                hasError: true,
+                errorMsg: data.reason
+            })
             return
         }
 
@@ -59,7 +63,7 @@ const Details = () => {
     return (
         <>
             {
-                error && <ErrorModal error={errorMsg} />
+                error.hasError && <ErrorModal error={error.errorMsg} />
             }
             <div className="mx-5">
                 <div className='flex flex-col text-center md:text-start items-center md:flex-row gap-5 bg-white shadow rounded-xl px-10 py-6 md:items-start justify-between md:mx-auto mt-[-4rem] md:max-w-4xl w-full'>
