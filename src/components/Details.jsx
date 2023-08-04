@@ -44,9 +44,22 @@ const Details = () => {
         setLocation(`${data.city}, ${data.region}, ${data.country_name}`)
         setTimezone(data.timezone)
         setIsp(data.org)
+
+        // to handle the case when response doesn't include latitude and longitude
+        const lat = data.latitude ? parseFloat(data.latitude) : 0
+        const long = data.longitude ? parseFloat(data.longitude) : 0
+
+        if (!lat || !long) {
+            setError({
+                hasError: true,
+                errorMsg: 'No location found'
+            })
+            return
+        }
+
         setLatLong({
-            latitude: parseFloat(data.latitude),
-            longitude: parseFloat(data.longitude)
+            latitude: lat,
+            longitude: long
         })
 
         setLoading(false)
@@ -59,7 +72,7 @@ const Details = () => {
             fetchIp()
         }
     }, [search])
-   
+
     return (
         <>
             {
