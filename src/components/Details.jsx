@@ -12,7 +12,6 @@ const Details = () => {
     })
     const [isp, setIsp] = useState('')
     const [loading, setLoading] = useState(true)
-    const [searchQuery, setSearchQuery] = useState('')
     const [error, setError] = useState(false)
     const [errorMsg, setErrorMsg] = useState('')
 
@@ -49,10 +48,8 @@ const Details = () => {
         setLoading(false)
     }
 
-    // use useffect to fetch data on search query change and on page load
     useEffect(() => {
         if (search) {
-            setSearchQuery(search)
             fetchIp(search)
         } else {
             fetchIp()
