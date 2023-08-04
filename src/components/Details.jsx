@@ -25,7 +25,6 @@ const Details = () => {
 
         if (query) {
             url = `https://ipapi.co/${query}/json/`
-            console.log(url)
         }
 
         const res = await fetch(url)
