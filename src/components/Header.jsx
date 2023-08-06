@@ -16,7 +16,7 @@ const Header = () => {
             <form onSubmit={handleSubmit} className="flex w-[calc(100% - 40px)] mt-4 md:mx-auto mx-5 md:max-w-sm">
                 <input type="text"
                     className='w-full text-sm py-3 px-5 rounded-l-md active:outline-none focus:outline-none'
-                    placeholder="Search for any IP address or domain"
+                    placeholder="Search for any IP address"
                 />
                 <button
                     className="bg-very-dark-gray active:opacity-80 active:outline-none focus:outline-none text-white rounded-r-md"
