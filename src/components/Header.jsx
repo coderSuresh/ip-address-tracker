@@ -19,6 +19,7 @@ const Header = () => {
                     placeholder="Search for any IP address"
                 />
                 <button
+                    aria-label='Search'
                     className="bg-very-dark-gray active:opacity-80 active:outline-none focus:outline-none text-white rounded-r-md"
                 >
                     <FontAwesomeIcon icon={faChevronRight} className='px-4' />
